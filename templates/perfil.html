@@ -1,0 +1,67 @@
+<link href="/static/css/perfil.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" media="screen" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+
+{% extends "blueprint.html" %}
+
+{% block title %}
+    Perfil
+{% endblock %}
+
+{% block main %}
+
+
+<div class="perfil-container">
+    <div class="div-perfil">
+        <div class="imagem-perfil"> 
+            <img src="/static/img/perfil.png" alt="Foto de Perfil" class="profile-image">
+        </div>
+        <div class="box">
+            <label class="avatar" for="btn">
+                <img src="http://placecage.com/100/100" alt="">
+            </label>
+            <input type="checkbox" id="btn">
+            <div class="menu">
+                <div class="menu1">
+                    <a class="enviar" href="#"><img src="/static/svg/upload.svg" alt="Enviar"> <span> Enviar</span></a>
+                    <br><br>
+                </div>
+                <div class="menu2">
+                    <a class="remove" href="#"><img src="/static/svg/remove.svg" alt="Remover"><span> Remover</span></a>
+                </div>
+            </div>
+        </div>
+        <div class="formulario-perfil">
+            <form>
+                <div class="nomes">
+                    <label for="nome"></label>
+                    <input class="nome" type="text" id="nome" name="nome" placeholder="Nome completo" required>
+              
+                    <label></label>
+                    <input placeholder="Nome do usuário" class="usuario">
+                </div>
+                <div class="email">
+                    <label for="email"></label>
+                    <input placeholder="E-mail" type="email" id="email" name="email" required>
+                </div>
+                <div class="senhas">
+                    <label for="senha"></label>
+                    <input placeholder="Senha" type="password" id="senha" name="senha" required>
+
+                    <label for="senha"></label>
+                    <input placeholder="Confirmar senha" type="password" id="senha" name="senha" required>
+                </div>
+
+                <div class="button-container">
+                    <button class="btn-excluir" type="Excluir">Excluir</button>
+                    <button class="btn-dados" type="reset">Alterar dados</button>
+                </div>
+
+              </form>
+        </div>
+    </div>
+    <div class="blue-div">
+
+    </div>
+</div>
+{% endblock %}

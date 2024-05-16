@@ -1,0 +1,186 @@
+<link href="/static/css/reconhecimento.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+{% extends "blueprint.html" %}
+
+{% block title %}
+    Reconhecimento
+{% endblock %}
+
+{% block main %}
+
+<div class="reconhecimento-container">
+    <div class="sidebar" onmouseover="this.classList.add('hovered')" onmouseout="this.classList.remove('hovered')">
+        <div class="sidebar-info">
+            <p>Acompanhe às informações!</p>
+        </div>
+        <div class="graficos" id="grafico-container">
+        </div>
+        <img class="seta" src="/static/svg/Seta.svg" alt="Seta">
+    </div>
+
+    <div class="webcam">
+        <div class="relogio-container">
+            <span id="relogio-horario"></span><br>
+            <span id="relogio-data-extenso"></span>
+        </div>
+        <div class="webcam-src-container">
+            <img class="webcam-src" src="/static/img/Camera.png" alt="">
+        </div>
+        <div class="webcam-botoes">
+            <button id="iniciar" class="iniciar-aula">Iniciar Aula</button>
+            <button id="finalizar" class="encerrar-aula" disabled>Encerrar Aula</button>
+        </div>
+    </div>
+    
+    <div class="info">
+        <div class="relatorio-real">
+            <div class="sala">
+                <select type="select" name="SALA" id="sala">
+                    <option value="sala1">SALA 1</option>
+                    <option value="sala2">SALA 2</option>
+                    <option value="sala3">SALA 3</option>
+                    <option value="sala4">SALA 4</option>
+                </select>
+            </div>
+            <div class="tabela">
+                <table>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Entrada 1</th>
+                        <th>Saída 1</th>
+                        <th>Entrada 2</th>
+                        <th>Saída 2</th>
+                    </tr>
+                    <tbody id="lista_alunos">
+                        <tr>
+                            <td>Aluno 1</td>
+                            <td>19:00:00</td>
+                            <td>21:00:00</td>
+                            <td>21:20:00</td>
+                            <td>23:00:00</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="frequencia-real">
+                <p class="user-entrada">36</p>
+                <p class="user-total">36</p>
+                <p class="user-falta">36</p>
+            </div>
+          </div>
+    </div>
+</div>
+
+<script>function up(){let t=new Date,e=t.getHours().toString().padStart(2,"0"),n=t.getMinutes().toString().padStart(2,"0"),a=t.getSeconds().toString().padStart(2,"0"),r=new Intl.DateTimeFormat("pt-BR",{weekday:"long"}).format(t),o=new Intl.DateTimeFormat("pt-BR",{month:"long"}).format(t),d=t.getFullYear(),i=`${e}:${n}:${a}`,g=`${r}, ${t.getDate()} de ${o} de ${d}`;document.getElementById("relogio-horario").textContent=i,document.getElementById("relogio-data-extenso").textContent=g}function renderChart(t,e,n,a){var r=document.getElementById("grafico-container"),o=document.createElement("div");o.classList.add("chart-container");var d=document.createElement("canvas");d.id=t;var i=document.createElement("p");i.classList.add("chart-description"),i.innerHTML=e,o.appendChild(d),o.appendChild(i),r.appendChild(o);var g=document.getElementById(t).getContext("2d");return new Chart(g,{type:"doughnut",data:n,options:a})}setInterval(up,1e3),up();</script>
+
+<script>   
+    document.addEventListener("DOMContentLoaded", () => {
+        const charts = [
+            {
+                id: 'grafico1',
+                texto: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit...',
+                data: {
+                    labels: ["Presente", "Ausente"],
+                    datasets: [{ data: [28, 4], backgroundColor: ["#0071BB", "#FFF"] }],
+                },
+                opcoes: {
+                    responsive: false,
+                    maintainAspectRatio: false,
+                    cutout: "85%",
+                    legend: { display: true, position: "bottom"}
+                },
+            },
+            {
+                id: 'grafico2',
+                texto: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit...',
+                data: {
+                    labels: ["Presente", "Ausente"],
+                    datasets: [{ data: [28, 4], backgroundColor: ["#0071BB", "#FFF"] }],
+                },
+                opcoes: {
+                    responsive: false,
+                    maintainAspectRatio: false,
+                    cutout: "85%",
+                    legend: { display: true, position: "bottom" },
+                },
+            },
+            {
+                id: 'grafico3',
+                texto: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit...',
+                data: {
+                    labels: ["Presente", "Ausente"],
+                    datasets: [{data: [28, 4], backgroundColor: ["#0071BB", "#FFF"]}],
+                },
+                opcoes: {
+                    responsive: false,
+                    maintainAspectRatio: false,
+                    cutout: "85%",
+                    legend: { display: true, position: "bottom"}
+                },
+            },
+        ];
+
+        for (let chart of charts) renderChart(chart.id, chart.texto, chart.data, chart.opcoes);
+    });
+
+    var iniciar_button = document.querySelector('button#iniciar');
+    iniciar_button.addEventListener("click", iniciar_aula);
+    var finalizar_button = document.querySelector('button#finalizar');
+    finalizar_button.addEventListener("click", finalizar_aula);
+
+    function iniciar_aula() {
+        Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Aula iniciada!",
+            showConfirmButton: false,
+            timer: 1300
+        });
+
+        iniciar_button.setAttribute('disabled', true);
+        finalizar_button.removeAttribute('disabled');
+
+        fetch('http://' + document.domain + ':' + location.port + '/start_aula', {
+            method: 'POST'
+        });
+    };
+
+    function finalizar_aula() {
+        const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+                confirmButton: "btn btn-success",
+                cancelButton: "btn btn-danger"
+            },
+            buttonsStyling: false
+        });
+
+        swalWithBootstrapButtons.fire({
+            title: "Encerrar aula",
+            text: "Deseja encerrar a aula?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: "Sim",
+            cancelButtonText: "Não",
+            reverseButtons: true
+        })
+        .then((result) => {
+            if (result.isConfirmed) {
+                swalWithBootstrapButtons.fire({
+                title: "Aula encerrada!",
+                text: "A aula foi encerrada com sucesso",
+                icon: "success"
+            });
+                finalizar_button.setAttribute('disabled', true);
+                iniciar_button.removeAttribute('disabled')
+
+                fetch('http://' + document.domain + ':' + location.port + '/end_aula', {
+                    method: 'POST'
+                });
+            }
+        });
+    };
+</script>
+
+{% endblock %}

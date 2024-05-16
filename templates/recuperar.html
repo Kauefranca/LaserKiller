@@ -1,0 +1,30 @@
+<link href="/static/css/recuperar.css" rel="stylesheet">
+
+{% extends "blueprint.html" %}
+
+{% block title %}
+    Esqueci a senha
+{% endblock %}
+
+{% block main %}
+    <div class="page-container">
+        <div class="caixa">
+            <div class="conteudo">
+                <h4 class="titulo">Esqueci minha senha</h4>
+                <p class="descricao">Para redefinir sua senha, informe o e-mail cadastrado na sua conta e lhe enviaremos o link de recuperação.</p>
+                <div class="input-container">
+                    <input type="text" id="input" required="">
+                    <label for="input" class="label">E-mail</label>
+                    <div class="underline"></div>
+                </div>
+                  
+                <div class="botoes">
+                    <button class="enviar">Enviar</button>
+                    <div class="cancelar-container">
+                        <a class="cancelar">Cancelar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

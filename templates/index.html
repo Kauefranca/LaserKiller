@@ -1,0 +1,24 @@
+<link href="/static/css/index.css" rel="stylesheet">
+
+{% extends "blueprint.html" %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block main %}
+<div class="background">
+    <div class="home-container">
+        <div class="card-container">
+        </div>
+    </div>
+</div>
+
+<footer class="small text-center terms-of-usage">
+    <hr class="footer-hr">
+    © 2024 LaserKiller. Todos os direitos reservados. <a class="politica-de-privacidade" href="/politica-de-privacidade">Política de privacidade</a>
+</footer>
+
+<script>function createCard(e, t, _, a) { var r = document.createElement("a"); r.href = t; var d = document.createElement("div"); d.classList.add("cartao"), d.style = a[0] ? `background-color: ${a[0]};` : "", r.appendChild(d); var i = document.createElement("div"); i.classList.add("card-text"); var l = document.createElement("h3"); l.innerHTML = e, l.style = a[1] && a[2] ? `background-color: ${a[1]}; color: ${a[2]};` : "", i.appendChild(l); var $ = document.createElement("p"); i.appendChild($); var s = document.createElement("br"); i.appendChild(s); var c = document.createElement("div"); c.classList.add("card-acessar"); var n = document.createElementNS("http://www.w3.org/2000/svg", "svg"); n.setAttribute("xmlns", "http://www.w3.org/2000/svg"), n.setAttribute("width", "42"), n.setAttribute("height", "42"), n.setAttribute("viewBox", "0 0 42 42"), n.setAttribute("fill", "none"); var p = document.createElementNS("http://www.w3.org/2000/svg", "circle"); p.setAttribute("cx", "21"), p.setAttribute("cy", "21"), p.setAttribute("r", "20.5"), p.setAttribute("fill", a[3] ? a[3] : "#000"); var t = document.createElementNS("http://www.w3.org/2000/svg", "path"); t.setAttribute("d", "M11.75 25.201C11.0326 25.6152 10.7867 26.5326 11.201 27.25C11.6152 27.9674 12.5326 28.2133 13.25 27.799L11.75 25.201ZM31.2694 16.8882C31.4838 16.088 31.0089 15.2655 30.2087 15.0511L17.1687 11.5571C16.3685 11.3426 15.546 11.8175 15.3316 12.6177C15.1172 13.4179 15.5921 14.2404 16.3923 14.4548L27.9834 17.5607L24.8776 29.1518C24.6631 29.952 25.138 30.7745 25.9382 30.9889C26.7384 31.2033 27.5609 30.7284 27.7753 29.9282L31.2694 16.8882ZM13.25 27.799L30.5705 17.799L29.0705 15.201L11.75 25.201L13.25 27.799Z"), t.setAttribute("fill", a[5] ? a[5] : "#00AA11"), n.appendChild(p), n.appendChild(t), c.appendChild(n); var v = document.createElement("div"); v.classList.add("acessar"), v.innerHTML = "Acessar", v.style = a[4] ? `color: ${a[4]};` : "", c.appendChild(v), d.appendChild(i), i.appendChild(c); var h = document.createElement("div"); h.classList.add("card-img"); var C = document.createElement("img"); C.src = _, h.appendChild(C), d.appendChild(h), document.querySelector(".card-container").appendChild(r) }; const AplicationsList = [{ name: "Acompanhar", path: "/acompanhar", imgPath: "/static/img/acompanhar.png", colors: [] }, { name: "Relatório", path: "/relatorio", imgPath: "/static/img/relatorio.png", colors: ["#00AA11", "#FFF", "#000", "#FFF", "#FFF"] },]; for (let application of AplicationsList) createCard(application.name, application.path, application.imgPath, application.colors);</script>
+
+{% endblock %}

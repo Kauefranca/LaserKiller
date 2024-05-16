@@ -1,0 +1,458 @@
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+body {
+    overflow: hidden;
+}
+
+.reconhecimento-container {
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    background-color: #F0F0F0;
+    border-radius: 45px 45px 0px 0px;
+}
+
+.sidebar,
+.webcam,
+.info {
+    flex: 1;
+    padding: 20px;
+    box-sizing: border-box;
+    color: #fff;
+    height: 95vh;
+}
+
+.sidebar {
+    max-width: 20%;
+    background-color: #191A23;
+    transition: max-width 0.5s;
+}
+
+.sidebar-info {
+    text-align: center;
+}
+
+.graficos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.chart-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    canvas {
+        height: 25vh;
+        width: 25vh;
+    }
+}
+
+.chart-description {
+    display: none;
+    width: 50%;
+    margin-left: 10px;
+}
+
+.chart-percentage {
+    position: absolute;
+    font-size: 100%;
+}
+
+
+.chart-description:hover {
+    width: 50%;
+    margin-left: 10px;
+}
+
+.chart-container:hover .chart-description {
+    display: none;
+}
+
+.seta {
+    width: 20px;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 18%;
+    transition: left 0.3s ease;
+    transform: rotate(-90deg);
+}
+
+.sidebar:hover .seta {
+    display: none;
+}
+
+.sidebar:hover {
+    max-width: 30%;
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.sidebar-info:hover {
+    text-align: center;
+}
+
+.sidebar.hovered .chart-description {
+    display: block;
+}
+
+.info {
+    max-width: 20%;
+    background-color: #191A23;
+}
+
+.webcam {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.relogio-container {
+    margin-top: 10px;
+    color: #0071BB;
+    text-align: center;
+    text-shadow: 5px 5px 4px rgba(166, 180, 200, 0.25), -5px -5px 12px rgba(255, 255, 255, 0.57);
+    font-size: 6vh;
+    line-height: normal;
+    width: 100%;
+}
+
+.webcam-src-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.webcam-src {
+    width: 75vh;
+    height: 50vh;
+    max-width: 740px;
+    max-height: 540px;
+}
+
+.webcam-botoes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 35px;
+    gap: 10px;
+}
+
+.iniciar-aula,
+.encerrar-aula {
+    width: 150px;
+    height: 50px;
+    font-size: 16px;
+    background-color: #0071BB;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 14px;
+    margin: 0 80px;
+    transition: background-color 0.3s;
+}
+
+.iniciar-aula:disabled,
+.encerrar-aula:disabled {
+    background-color: white !important;
+    color: black !important;
+    cursor:auto;
+}
+
+.iniciar-aula:hover,
+.encerrar-aula:hover {
+    background-color: #005183;
+}
+
+.btn {
+    margin-inline: 16px;
+    padding-inline: 18px
+}
+
+.sala {
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.sala:hover {
+    transform: scale(1.1);
+}
+
+.sala select {
+    border: none;
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url('/static/svg/Seta.svg');
+    background-size: 20px;
+    background-position: right center;
+    background-repeat: no-repeat;
+    font-size: 40px;
+    color: #fff;
+    background-color: transparent;
+    padding-right: 30px;
+}
+
+.sala > select > option {
+    font-size: 25px;
+    color: black;
+}
+
+.tabela {
+    height: 40vh;
+    overflow-y: auto;
+    overflow-x: auto;
+    border-collapse: collapse;
+    margin-top: 50px;
+}
+
+.tabela::-webkit-scrollbar {
+    width: 3px;
+    height: 3px;
+}
+
+.tabela::-webkit-scrollbar-track {
+    background-color: none;
+}
+
+.tabela::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 6px;
+}
+
+.tabela::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+}
+
+.tabela table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tabela th {
+    border: 1px solid white;
+}
+
+.tabela td {
+    border-top: 1px solid transparent;
+    border-left: 1px solid transparent;
+    border-right: 1px solid transparent;
+    border-bottom: 1px solid #ddd;
+    padding: 8px;
+    color: white;
+}
+
+.tabela th {
+    color: white;
+}
+
+.frequencia-real {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 80px;
+}
+
+.user-entrada {
+    background: url('/static/svg/user-entrada.svg') no-repeat;
+    background-size: 42px 42px;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 50px 10px 0px 10px;
+    height: 60px;
+    margin: 0;
+}
+
+.user-total {
+    background: url('/static/svg/users-total.svg') no-repeat;
+    background-size: 42px 42px;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 50px 10px 0px 10px;
+    height: 60px;
+    margin: 0;
+}
+
+.user-falta {
+    background: url('/static/svg/user-falta.svg') no-repeat;
+    background-size: 42px 42px;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 50px 10px 0px 10px;
+    height: 60px;
+    margin: 0;
+}
+
+.user-entrada:hover,
+.user-total:hover,
+.user-falta:hover {
+    transform: scale(1.2);
+}
+
+@media only screen and (max-width: 922px) {
+    body {
+        overflow: auto;
+    }
+
+    .sidebar,
+    .webcam,
+    .info {
+        flex: 1 0 100%;
+        margin-bottom: 10px;
+        max-width: 100%;
+    }
+
+    .webcam {
+        position: relative;
+    }
+
+    .webcam-src {
+        width: 75vw;
+        height: 50vw;
+    }
+
+    .relogio-container {
+        margin-top: 50px;
+        color: #0071BB;
+        font-size: 16px;
+        color: #0071BB;
+        text-align: center;
+        text-shadow: 5px 5px 4px rgba(166, 180, 200, 0.25), -5px -5px 12px rgba(255, 255, 255, 0.57);
+        font-size: 50px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+    }
+
+    .webcam-botoes {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .iniciar-aula,
+    .encerrar-aula {
+        margin-top: 10px;
+    }
+
+    .tabela {
+        max-height: 300px;
+        overflow-y: auto;
+    }
+
+    .sidebar {
+        pointer-events: none;
+    }
+}
+
+@media only screen and (max-width: 1410px) {
+    body {
+        overflow: auto;
+    }
+
+    .sidebar,
+    .webcam,
+    .info {
+        flex: 1 0 100%;
+        margin-bottom: 10px;
+        max-width: 100%;
+    }
+
+    .sidebar,
+    .webcam,
+    .info {
+        height: auto;
+    }
+
+    .webcam {
+        position: relative;
+    }
+
+    .relogio-container {
+        margin-top: 50px;
+        color: #0071BB;
+        font-size: 16px;
+        color: #0071BB;
+        text-align: center;
+        text-shadow: 5px 5px 4px rgba(166, 180, 200, 0.25), -5px -5px 12px rgba(255, 255, 255, 0.57);
+        font-size: 50px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+    }
+
+    .webcam-botoes {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .iniciar-aula,
+    .encerrar-aula {
+        margin-top: 10px;
+    }
+
+    .tabela {
+        max-height: 300px;
+        overflow-y: auto;
+    }
+
+    .sidebar {
+        pointer-events: none;
+    }
+
+    .graficos {
+        display: flex;
+        overflow-x: auto; /* Adicione overflow-x: auto para permitir scroll horizontal */
+    }
+
+    .graficos-container {
+        display: flex;
+    }
+
+    .chart-container {
+        width: 48%;
+        margin: 0 1%;
+    }
+
+    .chart-description {
+        width: 100%;
+        margin: 10px 0;
+        display: block;
+    }
+
+    .seta {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 424px) {
+
+    body {
+        overflow: auto;
+    }
+    
+    .relogio-container {
+        margin-top: 50px;
+        margin-bottom: -190;
+        color: #0071BB;
+        font-size: 16px;
+        color: #0071BB;
+        text-align: center;
+        text-shadow: 5px 5px 4px rgba(166, 180, 200, 0.25), -5px -5px 12px rgba(255, 255, 255, 0.57);
+        font-size: 50px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+    }
+}

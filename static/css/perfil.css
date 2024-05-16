@@ -1,0 +1,331 @@
+body {
+    overflow: hidden;
+}
+
+.perfil-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Adicionado para garantir que a div-perfil e blue-div estejam em coluna */
+    min-height: 100vh;
+    background-color: #f0f0f0;
+    border-radius: 45px;
+}
+
+.div-perfil {
+    display: flex;
+    margin-top: 60px;
+    position: relative;
+}
+
+.imagem-perfil {
+    padding: 20px;
+}
+
+.profile-image {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    border-radius: 50%;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0;
+}
+.box {
+    display: flex;
+    position: absolute;
+}
+.avatar::after {
+    opacity: 0;
+    font-family: FontAwesome;
+    content: "\f040";
+    color: #fff;
+    font-size: 2.5rem;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 4px;
+    left: 4px;
+    width: 350px;
+    height: 350px;
+    z-index: 2;
+    background-color: rgba(0,0,0,0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 350ms ease-in-out;
+    margin-left: 15px;
+    margin-top: 15px;
+}
+.avatar:hover::after {
+    opacity: 1;
+}
+
+.avatar {
+    overflow: hidden;
+}
+
+.menu {
+    position: absolute;
+    width: 200px;
+    background-color: #fff;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
+    box-sizing: border-box;
+    padding: 1.0rem;
+    border-radius: 0.5rem;
+    top: 425%;
+    left: 100px;
+    opacity: 0;
+    z-index: -1;
+    transition: 350ms ease-in-out;
+}
+
+.menu1 {
+    top: 425%;
+}
+
+.enviar, .remove {
+    color: black;
+    text-decoration: none;
+}
+
+.menu2 {
+    top: 525%;
+}
+
+.box input {
+    display: none;
+}
+
+.box input:checked + div.menu {
+    opacity: 1;
+    z-index: 999;
+}
+
+.formulario-perfil {
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 70px;
+}
+
+input {
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+.nomes > input{
+    padding: 10px 135px 10px 50px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    background-repeat: no-repeat;
+}
+
+.senhas > input {
+    padding: 10px 135px 10px 50px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    background-repeat: no-repeat;
+}
+
+.email > input {
+    padding: 10px 514px 10px 50px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    background-repeat: no-repeat;
+}
+
+.nomes > .nome {
+    background: url(/static/svg/user-profile.svg) no-repeat 10px center;
+}
+
+.nomes > .usuario {
+    background: url(/static/svg/arroba.svg) no-repeat 10px center;
+}
+
+.email > input {
+    background: url(/static/svg/email.svg) no-repeat 10px center;
+}
+
+.senhas > input {
+    background: url(/static/svg/cadeado.svg) no-repeat 10px center;
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+.btn-excluir {
+    padding: 10px 15px;
+    margin-left: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    background: #7D0000;
+    color: white;
+    border: none;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.btn-excluir:focus {
+    outline: 2px solid rgba(0,0,0,0.1);
+    outline-offset: 2px;
+}
+
+.btn-excluir:active {
+    transform: scale(0.95);
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+.btn-dados {
+    padding: 10px 15px;
+    margin-left: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    background: #0071BB;
+    color: white;
+    border: none;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.btn-dados:focus {
+    outline: 2px solid rgba(0,0,0,0.1);
+    outline-offset: 2px;
+}
+
+.btn-dados:active {
+    transform: scale(0.95);
+}
+
+.blue-div {
+    border-radius: 45px 45px 0px 0px;
+    width: 100%;
+    height: 355px;
+    background-color: #191A23;
+    margin-top: 50px;
+}
+
+@media (max-width: 1184px) {
+    body {
+        overflow: visible;
+    }
+
+    .div-perfil {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nomes > input, .senhas > input, .email > input {
+        width: 100%;
+    }
+
+    .formulario-perfil {
+        margin-top: 20px;
+    }
+
+    .button-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
+    }
+
+    .btn-excluir,
+    .btn-dados {
+        margin-bottom: 10px;
+    }
+
+    .avatar::after {
+        /* opacity: 0; */
+        font-family: FontAwesome;
+        content: "\f040";
+        color: #fff;
+        font-size: 2.5rem;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        top: 5px;
+        left: -190px;
+        width: 350px;
+        height: 350px;
+        z-index: 2;
+        background-color: rgba(0,0,0,0.5);
+        border-radius: 50%;
+        cursor: pointer;
+        transition: 350ms ease-in-out;
+        margin-left: 15px;
+        margin-top: 15px;
+    }
+
+    .box input:checked + div.menu {
+        opacity: 1;
+        z-index: 999;
+        left: -98px;
+    }
+}
+
+@media (max-width: 655px) {
+    .formulario-perfil {
+        width: 80%; /* Ajuste a largura do formulário conforme necessário */
+        max-width: 400px; /* Defina uma largura máxima para evitar que o formulário fique muito largo */
+        margin-top: 20px;
+    }
+
+    .button-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
+    }
+
+    .btn-excluir,
+    .btn-dados {
+        margin-bottom: 10px;
+    }
+
+    .nomes > input{
+        padding: 10px 10px 10px 50px;
+    }
+    
+    .senhas > input {
+        padding: 10px 10px 10px 50px;
+    }
+    
+    .email > input {
+        padding: 10px 10px 10px 50px;
+    }
+}
+
+@media (max-width: 600px) {
+    .avatar::after {
+        display: none;
+    }
+
+    .menu {
+        display: none;
+    }
+}
+
+@media (max-height: 940px) {
+    body {
+        overflow: visible;
+    }
+}

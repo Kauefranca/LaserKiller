@@ -1,0 +1,115 @@
+<link href="/static/css/cadastro.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+{% extends "blueprint.html" %}
+
+{% block title %}
+    Cadastro
+{% endblock %}
+
+{% block main %}
+<div class="cadastrar-container">
+    <div class="camera">
+        <div class="sala">
+            <select type="select" name="SALA" id="sala">
+                <option value="sala1">SALA 1</option>
+                <option value="sala2">SALA 2</option>
+                <option value="sala3">SALA 3</option>
+                <option value="sala4">SALA 4</option>
+            </select>
+        </div>
+        <div class="webcam">
+            <img src="/static/img/Camera.png" alt="Webcam">
+        </div>
+    </div>
+    <div class="formulario-cadastrar">
+        <div class="formulario-titulo">
+            <h1>Formulário de Inscrição</h1>
+        </div>
+        <div class="formulario">
+            <form onsubmit="cadastrar(event)">
+                <div class="nome-completo">
+                    <input type="text" id="nome" name="nome" autocomplete="off" placeholder="Insira o Nome Completo" required>
+                </div>
+            
+                <div class="ra-turma">
+                    <input class="ra" type="number" id="ra" name="ra" placeholder="Insira o RA" onkeydown="validarRA(event)" autocomplete="off" required>
+                    <select class="turma" type="select" name="turma" id="turma" placeholder="Insira a Turma" required>
+                        <option selected disabled value="">Selecione a Turma</option>
+                        <option value="sala2">BCC A</option>
+                        <option value="sala3">BCC B</option>
+                        <option value="sala4">BCC C</option>
+                    </select>
+                </div>
+            
+                <br><button class="button-container" type="submit" onsubmit="cadastrar()">Cadastrar</button>
+            </form>
+            <div>
+                <span class="loader"></span>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    function validarRA(v) {
+        var tecla = v.key;
+
+        var num = /[0-9]/.test(tecla);
+        var operador = ['Backspace', 'Delete', 'ArrowLeft', 'ArrowRight'].includes(tecla) || (event.ctrlKey || event.metaKey) && tecla === 'a';
+
+        var temSeteDigitos = v.target.value.length >= 7;
+
+        if (!num && !operador) {
+            v.preventDefault();
+        }
+
+        if (num && temSeteDigitos && !operador) {
+            v.preventDefault();
+        }
+    }
+
+    async function cadastrar(e) {
+        e.preventDefault()
+        const loader = document.querySelector('.loader');
+        loader.style.display = 'inline-block';
+
+        var formData = new FormData();
+        formData.append('nome', document.getElementById('nome').value);
+        formData.append('ra', document.getElementById('ra').value);
+        formData.append('sala', document.getElementById('sala').value);
+
+        await new Promise(r => setTimeout(r, 1500));
+
+        fetch('/cadastrar', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => {})
+        .then(data => {
+            loader.style.display = 'none';
+            Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "Cadastro realizado!",
+                showConfirmButton: false,
+                timer: 1500
+            });
+            console.log('Resposta da API:', data);
+        })
+        .catch(error => {
+            loader.style.display = 'none';
+            Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "Erro!",
+                showConfirmButton: false,
+                timer: 1500
+            });
+            console.error('Erro:', error);
+        });
+    };
+</script>
+
+{% endblock %}

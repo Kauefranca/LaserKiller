@@ -1,0 +1,72 @@
+<link href="/static/css/login.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz@6..12&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+
+{% extends "layout.html" %}
+
+{% block title %}
+Login
+{% endblock %}
+
+{% block main %}
+
+
+    <div class="container">
+        <div class="login">
+            <div class="image-container">
+                <img src="/static/img/login.png">
+            </div>
+            <div class="loginform">
+                <h1>Eai Fazendeiro(a)!</h1>
+                <h2>Faça login e acompanhe seus dados em tempo real.</h2>
+
+                {% if msg %}
+                    <div class="alert">
+                {% else %}
+                    <div class="alert" style="visibility: hidden;">
+                {% endif %}
+                        <span class="closebtn" onclick="this.parentElement.style.visibility = 'hidden';">&times;</span>
+                        {{msg}}
+                    </div>
+
+                <form method="post">
+                    <div class="input-box">
+                        <i class="fa fa-user"></i><input required class="email" type="text" name="email" placeholder="Email">
+                    </div>
+                    <div class="input-box">
+                        <i class="fa fa-lock"></i><input required class="password" type="password" name="password" placeholder="Password"><i class="fa fa-eye-slash" id="show-password" onclick="togglePassword()"></i>
+                    </div>
+                    <ul class="options">
+                        <li class="left">
+                            <input type="checkbox" name="lembrar_me"><a class="lembrar_me">Lembrar-me</a>
+                        </li>
+                        <li class="right">
+                            <a class="link" href="/recuperar" name="">Esqueceu a senha?</a>
+                        </li>
+                    </ul>
+                    <button type="submit" class="btn-submit">Login</button>
+                </form>
+                <div class="about">
+                    <p>Ainda não nos conhece? <a href="/sobre" class="link">Saiba mais</a> / <a href="/faq" class="link">FAQ</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function togglePassword() {
+            var passwordInput = document.querySelector('input.password');
+            var showPassElem = document.getElementById('show-password');
+            if (passwordInput.type == 'password') {
+                passwordInput.type = 'text';
+                showPassElem.className = 'fa fa-eye'
+            }
+            else {
+                passwordInput.type = 'password';
+                showPassElem.className = 'fa fa-eye-slash'
+            }
+        }
+    </script>
+
+
+{% endblock %}

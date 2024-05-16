@@ -1,0 +1,39 @@
+<link href="/static/css/sobre.css" rel="stylesheet">
+
+{% extends "blueprint.html" %}
+
+{% block title %}
+    Sobre
+{% endblock %}
+
+{% block main %}
+<div class="form-container">
+    <form action="#" method="post">
+        <div class="form-group">
+            <label for="report-type">Tipo de relatório</label>
+            <select id="report-type" name="report-type">
+                <option value="">Selecione o tipo</option>
+                <!-- Additional options will be added here -->
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="class">Turma</label>
+            <select id="class" name="class">
+                <option value="">Selecione a turma</option>
+                <!-- Additional options will be added here -->
+            </select>
+        </div>
+        <div class="form-group date-group">
+            <label for="start-date">Data Início</label>
+            <input type="date" id="start-date" name="start-date">
+        </div>
+        <div class="form-group date-group">
+            <label for="end-date">Data Fim</label>
+            <input type="date" id="end-date" name="end-date">
+        </div>
+        <div class="form-group">
+            <button type="submit">Gerar</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

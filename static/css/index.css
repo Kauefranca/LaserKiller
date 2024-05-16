@@ -1,0 +1,140 @@
+.home-container{
+    text-align: center;
+}
+
+.background {
+    background-color: #F0F0F0;
+    border-radius: 45px 45px 0px 0px;
+    height: 90%;
+}
+
+.card-container {
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
+    max-width: 1200px;
+    display: inline-grid;
+    gap: 20px;
+    padding: 50px;
+    justify-content: center;
+
+    a {
+        display: contents;
+    }    
+}
+
+.cartao {
+    width: 90%;
+    height: 260px;
+    gap: 20px;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: #fff;
+    border-radius: 35px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 50px;
+    display: flex;
+    margin-inline: auto;
+    text-align: center;
+    transition: transform 0.2s ease-in-out;
+
+    img {
+        width: 165px;
+        height: 165px;  
+        max-width: 100%;
+        object-fit: cover;
+    }
+}
+
+.cartao:hover {
+    transform: scale(1.05);
+}
+
+.cartao:active {
+    transform: scale(0.95);
+}
+
+.card-text {
+    p {
+        padding: 20px 10px;
+    }
+    
+    h3 {
+        width: 200px;
+        background-color: #00AA11;
+        color: #fff;
+        border-radius: 10px;
+        padding: 5px;
+        font-size: 1.5rem;
+        line-height: normal;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}
+
+.card-acessar {
+    display: flex;
+    align-items: center;
+
+    a {
+        padding-left: 10px;
+        margin-right: 10px;
+    }
+}
+
+.acessar {
+    color: #000;
+    margin-left: 10px;
+}
+
+.terms-of-usage {
+    background-color: #F0F0F0;
+    padding-bottom: 15px;
+
+    a {
+        margin-left: 40px
+    }
+}
+
+.footer-hr {
+    margin: auto;
+    width: 75%;
+    height: 2px;
+    background: black !important;
+    margin-bottom: 8px;
+    border: none !important;
+}
+
+.politica-de-privacidade {
+    color: #00AA11;
+}
+
+@media only screen and (max-width: 1340px) {
+    .background {
+        height: 80rem;
+    }
+    .card-container {
+        grid-template-columns: 1fr;
+    }
+
+    .card-text{
+        padding-right: 100px;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .cartao img {
+        display: none;
+    }
+    
+    .card-text {
+        text-align: center;
+    }
+}
+
+@media only screen and (max-height: 690px) {
+    .background {
+        height: 100%;
+        min-height: 690px;
+    }
+}

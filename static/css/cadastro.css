@@ -1,0 +1,247 @@
+* {
+    text-decoration: none;
+    list-style: none;
+}
+
+.cadastrar-container {
+    display: flex;
+    width: 100%;
+    height: 92vh;
+    text-align: center;
+    overflow-y: auto;
+    background-color: #F0F0F0;
+    border-radius: 45px 45px 0px 0px;
+    justify-content: center;
+}
+
+.camera, .formulario-cadastrar {
+    flex: 1;
+}
+
+.sala {
+    color: #fff;
+    padding: 10px;
+    margin: -90px 10px 8px 10px;
+}
+
+.sala select {
+    border: none;
+    -webkit-appearance: none;
+    background-image: url('/static/svg/Seta.svg');
+    background-size: 20px;
+    background-position: right center;
+    background-repeat: no-repeat;
+    font-size: 50px;
+    color: #fff;
+    background-color: transparent;
+    padding-right: 30px;
+}
+
+.sala > select > option {
+    font-size: 25px;
+    color: black;
+}
+
+.camera {
+    flex-direction: column;
+    background-color: #191A23;
+    border-radius: 0px 45px 0px 0px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.webcam {
+    display: flex;
+    justify-content: center;
+}
+
+.webcam > img {
+    background-color: #181818;
+    width: 40vw;
+    max-width: 720px;
+    height: auto;
+    max-height: 720px;
+    border: 8px solid #fff;
+    border-radius: 35px;
+    align-items: center;
+}
+
+.loader {
+    width: 48px;
+    height: 48px;
+    border: 5px solid black;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: none;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.formulario-titulo {
+    margin-top: 14%;
+    color: #0071BB;
+    text-align: center;
+    text-shadow: 5px 5px 4px rgba(166, 180, 200, 0.25), -5px -5px 12px rgba(255, 255, 255, 0.57);
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.nome-completo {
+    position: relative;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.nome-completo > input{
+    padding: 10px 10px 10px 50px;
+    background: url("/static/svg/user-profile.svg") no-repeat 10px center;
+    border-radius: 5px;
+    margin: 10px 10px 10px 10px;
+    display: flex;
+    width: 60%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    background-repeat: no-repeat;
+}
+
+.ra-turma {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+#ra::-webkit-outer-spin-button,
+#ra::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+div > .ra {
+    padding: 10px 10px 10px 50px;
+    background: url("/static/svg/fingerpint.svg") no-repeat 10px center;
+    border-radius: 5px;
+    width: 29.5%;
+    box-sizing: border-box;
+    background-repeat: no-repeat;
+}
+
+div > .turma {
+    padding: 10px 10px 10px 50px;
+    background: url("/static/svg/turma.svg") no-repeat 10px center;
+    border-radius: 5px;
+    width: 29.5%;
+    box-sizing: border-box;
+    background-repeat: no-repeat;
+}
+
+div > .ra::placeholder,
+div > .turma::placeholder {
+    padding: 10px 10px 10px 50px;
+    padding-left: 1px;
+    background-size: 20px;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.button-container {
+    align-items: center;
+    background-color: #0A66C2;
+    border: 0;
+    border-radius: 5px;
+    box-sizing: border-box;
+    color: #ffffff;
+    cursor: pointer;
+    display: inline-flex;
+    min-height: 40px;
+    padding: 0px;
+    padding-left: 20px;
+    padding-right: 20px;
+    touch-action: manipulation;
+    transition: background-color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, box-shadow 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+}
+
+.button-container:hover,
+.button-container:focus { 
+  background-color: #16437E;
+  color: #ffffff;
+}
+
+.button-container:active {
+  background: #09223b;
+  color: rgb(255, 255, 255, .7);
+}
+
+.button-container:disabled { 
+  cursor: not-allowed;
+  background: rgba(0, 0, 0, .08);
+  color: rgba(0, 0, 0, .3);
+}
+
+@media only screen and (min-width: 768px) {
+    * {
+        overflow: hidden;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    * {
+        overflow: scroll;
+    }
+    .cadastrar-container {
+        flex-direction: column;
+    }
+
+    .camera, .formulario-cadastrar {
+        flex: none;
+        width: 100%;
+    }
+
+    .camera {
+        border-radius: 0;
+        margin-bottom: 20px;
+    }
+
+    .webcam {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .sala {
+        color: #fff;
+        text-decoration: none;
+        padding: 10px;
+        margin: 0px 10px 0px 10px;
+        display: flex;
+        align-items: center;
+    }
+
+    .sala select {
+        font-size: 30px;
+    }
+    .cadastrar-container {
+        display: flow-root;
+    }
+}

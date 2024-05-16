@@ -1,0 +1,17 @@
+.politica-container {
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    overflow-y: auto;
+    background-color: #F0F0F0;
+    border-radius: 45px 45px 0px 0px;
+    height: 92.1vh;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding: 32px;
+}
+
+.politica-texto {
+    text-align: left;
+}
