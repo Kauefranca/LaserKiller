@@ -1,10 +1,11 @@
-from flask import Flask, render_template, request, session, redirect
+from flask import Flask, render_template, request, session, redirect, Response
 from flask_session import Session
 from werkzeug.exceptions import default_exceptions
 from werkzeug.security import check_password_hash
 
 from sources.utils import errorhandler, login_required, not_login_required
 from sources.postgres import Postgress
+from sources.camera import CameraFeed
 
 import json
 
@@ -13,6 +14,8 @@ faq_items = json.load(open('config/faq.json', encoding='utf-8'))
 
 DB_CONN = Postgress(host='localhost', database='postgres')
 DB_CONN.connect()
+
+camera = CameraFeed()
 
 app = Flask(__name__)
 
@@ -101,6 +104,15 @@ def recuperar():
 @app.route("/politica-de-privacidade", methods=["GET"])
 def politica_de_privacidade():
     return render_template('politica-de-privacidade.html')
+
+@app.route('/camera_feed')
+def rec():
+    return Response(gen_feed(), mimetype='multipart/x-mixed-replace; boundary=frame ')
+
+def gen_feed():
+    while True:
+        frame = camera.read()
+        yield (b'--frame\r\n'b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
 
 @app.route("/teste", methods=["GET", "POST"])
 def teste():

@@ -26,11 +26,12 @@
             <span id="relogio-data-extenso"></span>
         </div>
         <div class="webcam-src-container">
-            <img class="webcam-src" src="/static/img/Camera.png" alt="">
+            <img class="webcam-src" src="http://127.0.0.1:5000/camera_feed" alt="">
+            <!-- <img class="webcam-src" src="/static/img/Camera.png" alt=""> -->
         </div>
         <div class="webcam-botoes">
-            <button id="iniciar" class="iniciar-aula">Iniciar</button>
-            <button id="finalizar" class="encerrar-aula" disabled>Encerrar</button>
+            <button id="laser" class="teste-laser">Teste Laser</button>
+            <!-- <button id="finalizar" class="encerrar-aula" disabled>Encerrar</button> -->
         </div>
     </div>
     
@@ -151,12 +152,16 @@
         for (let chart of charts) renderChart(chart.id, chart.texto, chart.data, chart.opcoes);
     });
 
-    var iniciar_button = document.querySelector('button#iniciar');
-    iniciar_button.addEventListener("click", iniciar_aula);
+    var iniciar_button = document.querySelector('button#laser');
+    iniciar_button.addEventListener("click", testeLaser);
     var finalizar_button = document.querySelector('button#finalizar');
     finalizar_button.addEventListener("click", finalizar_aula);
 
-    function iniciar_aula() {
+    function testeLaser() {
+        fetch('http://192.168.68.108/control?var=toggle-laser&val=1', {
+            method: 'GET'
+        });
+        return
         Swal.fire({
             position: "center",
             icon: "success",
@@ -168,9 +173,6 @@
         iniciar_button.setAttribute('disabled', true);
         finalizar_button.removeAttribute('disabled');
 
-        fetch('http://' + document.domain + ':' + location.port + '/start_aula', {
-            method: 'POST'
-        });
     };
 
     function finalizar_aula() {
