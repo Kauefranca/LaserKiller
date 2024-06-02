@@ -1,11 +1,11 @@
-<link href="/static/css/reconhecimento.css" rel="stylesheet">
+<link href="/static/css/acompanhar.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 {% extends "blueprint.html" %}
 
 {% block title %}
-    Reconhecimento
+    Acompanhar
 {% endblock %}
 
 {% block main %}
@@ -29,37 +29,63 @@
             <img class="webcam-src" src="/static/img/Camera.png" alt="">
         </div>
         <div class="webcam-botoes">
-            <button id="iniciar" class="iniciar-aula">Iniciar Aula</button>
-            <button id="finalizar" class="encerrar-aula" disabled>Encerrar Aula</button>
+            <button id="iniciar" class="iniciar-aula">Iniciar</button>
+            <button id="finalizar" class="encerrar-aula" disabled>Encerrar</button>
         </div>
     </div>
     
     <div class="info">
         <div class="relatorio-real">
             <div class="sala">
-                <select type="select" name="SALA" id="sala">
-                    <option value="sala1">SALA 1</option>
-                    <option value="sala2">SALA 2</option>
-                    <option value="sala3">SALA 3</option>
-                    <option value="sala4">SALA 4</option>
-                </select>
+                <h1>Histórico</h1>
             </div>
             <div class="tabela">
                 <table>
                     <tr>
-                        <th>Nome</th>
-                        <th>Entrada 1</th>
-                        <th>Saída 1</th>
-                        <th>Entrada 2</th>
-                        <th>Saída 2</th>
+                        <th>Data</th>
+                        <th>Hora</th>
+                        <th>Situação</th>
                     </tr>
                     <tbody id="lista_alunos">
                         <tr>
-                            <td>Aluno 1</td>
-                            <td>19:00:00</td>
-                            <td>21:00:00</td>
-                            <td>21:20:00</td>
-                            <td>23:00:00</td>
+                            <td>01/06/2024</td>
+                            <td>07:28:20</td>
+                            <td>Realizado</td>
+                        </tr>
+                        <tr>
+                            <td>01/06/2024</td>
+                            <td>07:28:20</td>
+                            <td>Realizado</td>
+                        </tr>
+                        <tr>
+                            <td>01/06/2024</td>
+                            <td>07:28:20</td>
+                            <td>Realizado</td>
+                        </tr>
+                        <tr>
+                            <td>01/06/2024</td>
+                            <td>07:28:20</td>
+                            <td>Realizado</td>
+                        </tr>
+                        <tr>
+                            <td>01/06/2024</td>
+                            <td>07:28:20</td>
+                            <td>Realizado</td>
+                        </tr>
+                        <tr>
+                            <td>01/06/2024</td>
+                            <td>07:28:20</td>
+                            <td>Realizado</td>
+                        </tr>
+                        <tr>
+                            <td>01/06/2024</td>
+                            <td>07:28:20</td>
+                            <td>Realizado</td>
+                        </tr>
+                        <tr>
+                            <td>01/06/2024</td>
+                            <td>07:28:20</td>
+                            <td>Realizado</td>
                         </tr>
                     </tbody>
                 </table>
@@ -83,7 +109,7 @@
                 texto: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit...',
                 data: {
                     labels: ["Presente", "Ausente"],
-                    datasets: [{ data: [28, 4], backgroundColor: ["#0071BB", "#FFF"] }],
+                    datasets: [{ data: [28, 4], backgroundColor: ["#00AA11", "#FFF"] }],
                 },
                 opcoes: {
                     responsive: false,
@@ -97,7 +123,7 @@
                 texto: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit...',
                 data: {
                     labels: ["Presente", "Ausente"],
-                    datasets: [{ data: [28, 4], backgroundColor: ["#0071BB", "#FFF"] }],
+                    datasets: [{ data: [28, 4], backgroundColor: ["#00AA11", "#FFF"] }],
                 },
                 opcoes: {
                     responsive: false,
@@ -111,7 +137,7 @@
                 texto: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit...',
                 data: {
                     labels: ["Presente", "Ausente"],
-                    datasets: [{data: [28, 4], backgroundColor: ["#0071BB", "#FFF"]}],
+                    datasets: [{data: [28, 4], backgroundColor: ["#00AA11", "#FFF"]}],
                 },
                 opcoes: {
                     responsive: false,

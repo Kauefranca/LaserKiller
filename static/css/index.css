@@ -9,6 +9,7 @@
 }
 
 .card-container {
+    margin-top: 10%;
     grid-template-columns: repeat(2, 1fr);
     width: 100%;
     max-width: 1200px;

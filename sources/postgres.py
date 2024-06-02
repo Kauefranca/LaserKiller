@@ -6,8 +6,8 @@ class Postgress:
     def __init__(self, host, database):
         self.host = host
         self.database = database
-        self.user = os.getenv('POSTGRES_USER')
-        self.password = os.getenv('POSTGRES_PASSWORD')
+        self.user = 'postgres'
+        self.password = 'unimar'
         self.port = '5432'
         self.connection = None
 

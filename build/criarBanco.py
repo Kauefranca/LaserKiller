@@ -5,7 +5,8 @@ con = psycopg2.connect(
   database='postgres', 
   port='5432',
   user='postgres', 
-  password='postgres')
+  password='unimar',
+  client_encoding='UTF8')
 
 cur = con.cursor()
 

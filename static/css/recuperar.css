@@ -12,7 +12,7 @@
 
 .caixa {
     border-radius: 22px;
-    background-color: #191A23;
+    background-color: #001502;
     color: white;
 
     width: 70vw;
@@ -57,7 +57,7 @@
 
 .enviar {
     width: 80%;
-    background-color: #0071BB;
+    background-color: #00AA11;
     color: white;
     border: 0px;
     border-radius: 16px;
@@ -65,7 +65,7 @@
 }
 
 .enviar:hover {
-    background-color: #005183;
+    background-color: #00AA11;
 }
 
 .cancelar-container {
@@ -76,6 +76,10 @@
 
 .cancelar-container:hover {
     cursor: pointer;
+}
+
+.cancelar {
+    color: #00AA11;
 }
 
 .input-container {

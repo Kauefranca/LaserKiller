@@ -26,7 +26,7 @@ body {
 
 .sidebar {
     max-width: 20%;
-    background-color: #191A23;
+    background-color: #001502;
     transition: max-width 0.5s;
 }
 
@@ -106,7 +106,7 @@ body {
 
 .info {
     max-width: 20%;
-    background-color: #191A23;
+    background-color: #001502;
 }
 
 .webcam {
@@ -118,7 +118,7 @@ body {
 
 .relogio-container {
     margin-top: 10px;
-    color: #0071BB;
+    color: #00AA11;
     text-align: center;
     text-shadow: 5px 5px 4px rgba(166, 180, 200, 0.25), -5px -5px 12px rgba(255, 255, 255, 0.57);
     font-size: 6vh;
@@ -152,7 +152,7 @@ body {
     width: 150px;
     height: 50px;
     font-size: 16px;
-    background-color: #0071BB;
+    background-color: #00AA11;
     color: #fff;
     border: none;
     cursor: pointer;
@@ -170,7 +170,7 @@ body {
 
 .iniciar-aula:hover,
 .encerrar-aula:hover {
-    background-color: #005183;
+    background-color: #00AA11;
 }
 
 .btn {
@@ -185,29 +185,6 @@ body {
     align-items: center;
     justify-content: center;
     margin-top: 10px;
-}
-
-.sala:hover {
-    transform: scale(1.1);
-}
-
-.sala select {
-    border: none;
-    appearance: none;
-    -webkit-appearance: none;
-    background-image: url('/static/svg/Seta.svg');
-    background-size: 20px;
-    background-position: right center;
-    background-repeat: no-repeat;
-    font-size: 40px;
-    color: #fff;
-    background-color: transparent;
-    padding-right: 30px;
-}
-
-.sala > select > option {
-    font-size: 25px;
-    color: black;
 }
 
 .tabela {
@@ -266,8 +243,8 @@ body {
 }
 
 .user-entrada {
-    background: url('/static/svg/user-entrada.svg') no-repeat;
-    background-size: 42px 42px;
+    background: url('/static/svg/ok.svg') no-repeat;
+    background-size: 38px 38px;
     text-align: center;
     box-sizing: border-box;
     padding: 50px 10px 0px 10px;
@@ -276,8 +253,8 @@ body {
 }
 
 .user-total {
-    background: url('/static/svg/users-total.svg') no-repeat;
-    background-size: 42px 42px;
+    background: url('/static/svg/no.svg') no-repeat;
+    background-size: 38px 38px;
     text-align: center;
     box-sizing: border-box;
     padding: 50px 10px 0px 10px;
@@ -286,8 +263,8 @@ body {
 }
 
 .user-falta {
-    background: url('/static/svg/user-falta.svg') no-repeat;
-    background-size: 42px 42px;
+    background: url('/static/svg/grafic.svg') no-repeat;
+    background-size: 38px 38px;
     text-align: center;
     box-sizing: border-box;
     padding: 50px 10px 0px 10px;
@@ -325,9 +302,9 @@ body {
 
     .relogio-container {
         margin-top: 50px;
-        color: #0071BB;
+        color: #00AA11;
         font-size: 16px;
-        color: #0071BB;
+        color: #00AA11;
         text-align: center;
         text-shadow: 5px 5px 4px rgba(166, 180, 200, 0.25), -5px -5px 12px rgba(255, 255, 255, 0.57);
         font-size: 50px;
@@ -381,9 +358,9 @@ body {
 
     .relogio-container {
         margin-top: 50px;
-        color: #0071BB;
+        color: #00AA11;
         font-size: 16px;
-        color: #0071BB;
+        color: #00AA11;
         text-align: center;
         text-shadow: 5px 5px 4px rgba(166, 180, 200, 0.25), -5px -5px 12px rgba(255, 255, 255, 0.57);
         font-size: 50px;
@@ -413,7 +390,7 @@ body {
 
     .graficos {
         display: flex;
-        overflow-x: auto; /* Adicione overflow-x: auto para permitir scroll horizontal */
+        overflow-x: auto;
     }
 
     .graficos-container {
@@ -445,9 +422,9 @@ body {
     .relogio-container {
         margin-top: 50px;
         margin-bottom: -190;
-        color: #0071BB;
+        color: #00AA11;
         font-size: 16px;
-        color: #0071BB;
+        color: #00AA11;
         text-align: center;
         text-shadow: 5px 5px 4px rgba(166, 180, 200, 0.25), -5px -5px 12px rgba(255, 255, 255, 0.57);
         font-size: 50px;

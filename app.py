@@ -65,10 +65,10 @@ def logout():
 def index():
     return render_template("index.html")
 
-@app.route("/reconhecimento", methods=["GET"])
+@app.route("/acompanhar", methods=["GET"])
 @login_required
 def reconhecimento():
-    return render_template('reconhecimento.html')
+    return render_template('acompanhar.html')
 
 @app.route("/cadastro", methods=["GET"])
 @login_required
