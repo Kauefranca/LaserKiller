@@ -7,15 +7,17 @@ load_dotenv()
 
 VIDEO_SRC = os.getenv('VIDEO_SRC')
 
-class CameraFeed:
-    def __init__(self): # Metodo construtor
+class Camera:
+    def __init__(self):
         try:
-            self._camera = cv2.VideoCapture(VIDEO_SRC) # Atributo privado
+            # self._camera = cv2.VideoCapture(VIDEO_SRC)
+            self._camera = cv2.VideoCapture(1)
         except:
             self._camera
+
         self._lock = threading.Lock()
         
-    def __del__(self): # Método destrutor
+    def __del__(self):
         self._camera.release()
         cv2.destroyAllWindows()
         print("Objeto Camera destruído")
@@ -27,8 +29,11 @@ class CameraFeed:
             if not con:
                 raise ConnectionError(f"A conexão com a câmera {VIDEO_SRC} foi perdida!")
 
-            img = cv2.resize(cap, (640, 640))
+            return cap
 
-            ret, jpeg = cv2.imencode('.jpg', img)
+if __name__ == "__main__":
+    cam = Camera()
 
-            return jpeg.tobytes()
+    while True:
+        cv2.imshow("UniRecognition", cam.read())
+        cv2.waitKey(1)
