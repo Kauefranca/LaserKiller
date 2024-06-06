@@ -1,27 +1,35 @@
 import cv2
 import numpy as np
+import time
 
 class Identificador:
     def __init__(self):
-        self.cap = cv2.VideoCapture(1)
+        self.cap = cv2.VideoCapture(0)
 
     def run(self):
-        while True:
-            ret, frame = self.cap.read()
-
+        # while True:
+            # ret, frame = self.cap.read()
+            frame = cv2.imread('.\sources\img.png')
             mask = create_color_mask(frame)
             centers = find_centers(mask)
+            hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2RGBA)
+
 
             for center in centers:
                 if center is not None:
                     cv2.circle(mask, center, 5, (0, 0, 255), -1)
+            
+            height, width = mask.shape[:2]
+            cv2.line(mask, (0, 0), (width - 1, height - 1), (0, 0, 255), 2)  # Linha vermelha com espessura 2
 
             cv2.imshow('frame', mask)
 
             key: int = cv2.waitKey(1)
 
             if key == ord('q'):
-                break
+                return
+            time.sleep(2000)
+                # break
 
 def find_centers(mask):
     contours, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)

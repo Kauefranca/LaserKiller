@@ -9,25 +9,23 @@
 {% block main %}
     <div class="relatorio-container">
         <div class="left">
-            <form action="#" method="post" class="form-container">
+            <form action="/relatorio" method="post" class="form-container">
                 <div class="form-group">
                     <select id="report-type" name="report-type">
                         <option value="">Selecione o tipo</option>
-                        <option value="">Simples</option>
-                        <option value="">Completo</option>
-                        <!-- Additional options will be added here -->
+                        <option value="simples">Simples</option>
+                        <option value="completo">Completo</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <select id="class" name="class">
                         <option value="">Selecione a fazenda</option>
-                        <option value="">Fazenda Experimental Unimar</option>
-                        <!-- Additional options will be added here -->
+                        <option value="fazenda_experimental_unimar">Fazenda Experimental Unimar</option>
                     </select>
                 </div>
                 <div class="form-group date-group">
-                    <input type="date" id="start-date" name="start-date">
-                    <input type="date" id="end-date" name="end-date">
+                    <input type="date" id="start-date" name="start-date" required>
+                    <input type="date" id="end-date" name="end-date" required>
                 </div>
                 <div class="form-group">
                     <button class="button-gerar" type="submit">Gerar</button>
@@ -37,162 +35,57 @@
         <div class="right">
             <div class="green-div"></div>
             <div class="relatorio-table">
-                <table>
-                    <tr>
-                        <th>Data</th>
-                        <th>Horário</th>
-                        <th>Qntd. Ervas Detectadas</th>
-                        <th>Porc. Ervas Detectadas</th>
-                        <th>Situação</th>
-                        <th>Risco</th>
-                        <th>Download</th>
-                    </tr>
-                    <tr>
-                        <td>01/06/2024</td>
-                        <td>07:28:32</td>
-                        <td>14</td>
-                        <td>22%</td>
-                        <td>Bom</td>
-                        <td>Baixo</td>
-                        <td>Gerar</td>
-                    </tr>
-                    <tr>
-                        <td>01/06/2024</td>
-                        <td>07:28:32</td>
-                        <td>14</td>
-                        <td>22%</td>
-                        <td>Bom</td>
-                        <td>Baixo</td>
-                        <td>Gerar</td>
-                    </tr>
-                    <tr>
-                        <td>01/06/2024</td>
-                        <td>07:28:32</td>
-                        <td>14</td>
-                        <td>22%</td>
-                        <td>Bom</td>
-                        <td>Baixo</td>
-                        <td>Gerar</td>
-                    </tr>
-                    <tr>
-                        <td>01/06/2024</td>
-                        <td>07:28:32</td>
-                        <td>14</td>
-                        <td>22%</td>
-                        <td>Bom</td>
-                        <td>Baixo</td>
-                        <td>Gerar</td>
-                    </tr>
-                    <tr>
-                        <td>01/06/2024</td>
-                        <td>07:28:32</td>
-                        <td>14</td>
-                        <td>22%</td>
-                        <td>Bom</td>
-                        <td>Baixo</td>
-                        <td>Gerar</td>
-                    </tr>
-                    <tr>
-                        <td>01/06/2024</td>
-                        <td>07:28:32</td>
-                        <td>14</td>
-                        <td>22%</td>
-                        <td>Bom</td>
-                        <td>Baixo</td>
-                        <td>Gerar</td>
-                    </tr>
-                    <tr>
-                        <td>01/06/2024</td>
-                        <td>07:28:32</td>
-                        <td>14</td>
-                        <td>22%</td>
-                        <td>Bom</td>
-                        <td>Baixo</td>
-                        <td>Gerar</td>
-                    </tr>
-                    <tr>
-                        <td>01/06/2024</td>
-                        <td>07:28:32</td>
-                        <td>14</td>
-                        <td>22%</td>
-                        <td>Bom</td>
-                        <td>Baixo</td>
-                        <td>Gerar</td>
-                    </tr>
-                    <tr>
-                        <td>01/06/2024</td>
-                        <td>07:28:32</td>
-                        <td>14</td>
-                        <td>22%</td>
-                        <td>Bom</td>
-                        <td>Baixo</td>
-                        <td>Gerar</td>
-                    </tr>
-                    <tr>
-                        <td>01/06/2024</td>
-                        <td>07:28:32</td>
-                        <td>14</td>
-                        <td>22%</td>
-                        <td>Bom</td>
-                        <td>Baixo</td>
-                        <td>Gerar</td>
-                    </tr>
-                    <tr>
-                        <td>01/06/2024</td>
-                        <td>07:28:32</td>
-                        <td>14</td>
-                        <td>22%</td>
-                        <td>Bom</td>
-                        <td>Baixo</td>
-                        <td>Gerar</td>
-                    </tr>
-                    <tr>
-                        <td>01/06/2024</td>
-                        <td>07:28:32</td>
-                        <td>14</td>
-                        <td>22%</td>
-                        <td>Bom</td>
-                        <td>Baixo</td>
-                        <td>Gerar</td>
-                    </tr>
-                    <tr>
-                        <td>01/06/2024</td>
-                        <td>07:28:32</td>
-                        <td>14</td>
-                        <td>22%</td>
-                        <td>Bom</td>
-                        <td>Baixo</td>
-                        <td>Gerar</td>
-                    </tr>
-                    <tr>
-                        <td>01/06/2024</td>
-                        <td>07:28:32</td>
-                        <td>14</td>
-                        <td>22%</td>
-                        <td>Bom</td>
-                        <td>Baixo</td>
-                        <td>Gerar</td>
-                    </tr>
-                    <tr>
-                        <td>01/06/2024</td>
-                        <td>07:28:32</td>
-                        <td>14</td>
-                        <td>22%</td>
-                        <td>Bom</td>
-                        <td>Baixo</td>
-                        <td>Gerar</td>
-                    </tr>
-                    <tr>
-                        <td>01/06/2024</td>
-                        <td>07:28:32</td>
-                        <td>14</td>
-                        <td>22%</td>
-                        <td>Bom</td>
-                        <td>Baixo</td>
-                        <td>Gerar</td>
-                    </tr>
+                <table id='tabela'>
+                <tr>
+                    <th>Data</th>
+                    <th>Horário</th>
+                    <th>Qntd. Ervas Detectadas</th>
+                    <th>Porc. Ervas Detectadas</th>
+                    <th>Situação</th>
+                    <th>Risco</th>
+                    <th>Download</th>
+                </tr>
+                <colgroup>
+                <col class="twenty" />
+                <col class="fourty" />
+                <col class="thirtyfive" />
+                <col class="twentyfive" />
+            </colgroup>
                 </table>               
             </div>
         </div>
     </div>
+    <script>
+        function get_json_data() {
+            fetch("/relatorio", {
+            method: "POST",
+            // body: JSON.stringify({
+            //     userId: 1,
+            //     title: "Fix my bugs",
+            //     completed: false
+            // }),
+            headers: {
+                "Content-type": "application/json; charset=UTF-8"
+            }
+            })
+            .then((response) => response.json())
+            .then((json) => append_json(json));
+        }
+
+        function append_json(data){
+            var table = document.getElementById('tabela');
+            data.forEach(function(object) {
+                var tr = document.createElement('tr');
+                tr.innerHTML = '<td>' + object.Data + '</td>' +
+                    '<td>' + object.Horario + '</td>' +
+                    '<td>' + object.QntErvasDetec + '</td>' +
+                    '<td>' + object.PorcErvasDetectadas + '</td>' +
+                    '<td>' + object.Situacao + '</td>' +
+                    '<td>' + object.Risco + '</td>' +
+                    '<td>' + object.Download + '</td>';
+                table.appendChild(tr);
+            });
+        }
+        document.addEventListener("DOMContentLoaded", get_json_data);
+    </script>
 {% endblock %}

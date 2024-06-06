@@ -5,7 +5,7 @@ from werkzeug.security import check_password_hash
 
 from sources.utils import errorhandler, login_required, not_login_required
 from sources.postgres import Postgress
-from sources.camera import CameraFeed
+from sources.camera import Camera
 
 import json
 
@@ -15,7 +15,7 @@ faq_items = json.load(open('config/faq.json', encoding='utf-8'))
 DB_CONN = Postgress(host='localhost', database='postgres')
 DB_CONN.connect()
 
-camera = CameraFeed()
+camera = Camera()
 
 app = Flask(__name__)
 
@@ -78,10 +78,44 @@ def reconhecimento():
 def cadastro():
     return render_template('cadastro.html')
 
-@app.route("/relatorio", methods=["GET"])
+@app.route("/relatorio", methods=["GET", "POST"])
 @login_required
 def relatorio():
-    return render_template('relatorio.html')
+    if request.method == "POST":
+        rows = DB_CONN.execute_query("""
+            SELECT data, qntErvasDetec, porcErvasDetectadas, situacao, risco
+            FROM registro;
+        """)
+    
+        if len(rows) == 0:
+            return render_template("login.html", msg="Credenciais inválidas!")
+
+        result_json = []
+        for row in rows:
+            data, qntErvasDetec, porcErvasDetectadas, situacao, risco = row
+            result_json.append({
+                "Data": data.strftime("%Y-%m-%d %H:%M:%S"),
+                "QntErvasDetec": qntErvasDetec,
+                "PorcErvasDetectadas": porcErvasDetectadas,
+                "Situacao": situacao,
+                "Risco": risco
+            })
+
+            response = app.response_class(
+                response=json.dumps(result_json),
+                status=200,
+                mimetype='application/json'
+            )
+
+        return response
+
+    else: 
+        return render_template('relatorio.html')
+
+@app.route("/download", methods=["GET"])
+@login_required
+def download():
+    return render_template('download.html')
 
 @app.route("/perfil", methods=["GET"])
 @login_required

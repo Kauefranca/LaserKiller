@@ -1,0 +1,38 @@
+<link href="/static/css/download.css" rel="stylesheet">
+
+{% extends "blueprint.html" %}
+
+{% block title %}
+    Download
+{% endblock %}
+
+{% block main %}
+    <h1>Relatorio</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Data</th>
+                <th>Horário</th>
+                <th>Qntd. Ervas Detectadas</th>
+                <th>Porc. Ervas Detectadas</th>
+                <th>Situação</th>
+                <th>Risco</th>
+                <th>Download</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in dados %}
+            <tr>
+                <td>{{ row.data }}</td>
+                <td>{{ row.horario}}</td>
+                <td>{{ row.quantidade }}</td>
+                <td>{{ row.porcentagem }}</td>
+                <td>{{ row.situacao }}</td>
+                <td>{{ row.risco }}</td>
+                <td>{{ row.download }}</td>
+
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

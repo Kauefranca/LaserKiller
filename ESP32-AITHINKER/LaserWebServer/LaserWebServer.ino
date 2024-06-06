@@ -7,8 +7,8 @@
 // ===========================
 // Configurações do WIFI
 // ===========================
-const char *ssid = "((WIFI ))";
-const char *password = "@Hsf2519";
+const char *ssid = "ESPCAM";
+const char *password = "tinhaqueserads";
 
 int laserStatus = 0;
 
@@ -94,11 +94,6 @@ void setup() {
   if (config.pixel_format == PIXFORMAT_JPEG) {
     s->set_framesize(s, FRAMESIZE_QVGA);
   }
-
-// Setup LED FLash if LED pin is defined in camera_pins.h
-#if defined(LED_GPIO_NUM)
-  setupLedFlash(LED_GPIO_NUM);
-#endif
 
   pinMode(LASER_GPIO_NUM, OUTPUT);
 

@@ -30,9 +30,9 @@ cur = con.cursor()
 # cur.execute(sql)
 # con.commit()
 
-# sql = "CREATE TABLE IF NOT EXISTS registro(id_registro SERIAL NOT NULL UNIQUE PRIMARY KEY, id_aluno INT NOT NULL REFERENCES aluno(id_aluno),id_aula INT NOT NULL REFERENCES aula(id_aula),entrada TIMESTAMP, saida TIMESTAMP, start_date TIMESTAMP, end_date TIMESTAMP);"
-# cur.execute(sql)
-# con.commit()
+sql = "CREATE TABLE IF NOT EXISTS registro(id SERIAL NOT NULL UNIQUE PRIMARY KEY, data TIMESTAMP, qntErvasDetec INT NOT NULL, porcErvasDetectadas INT NOT NULL, situacao VARCHAR(8), risco VARCHAR(8));"
+cur.execute(sql)
+con.commit()
 
 sql = "CREATE TABLE IF NOT EXISTS usuario(id_usuario SERIAL NOT NULL UNIQUE PRIMARY KEY, email VARCHAR(50) NOT NULL, hash TEXT NOT NULL);"
 cur.execute(sql)
