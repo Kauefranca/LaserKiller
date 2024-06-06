@@ -5,7 +5,7 @@ from werkzeug.security import check_password_hash
 
 from sources.utils import errorhandler, login_required, not_login_required
 from sources.postgres import Postgress
-from sources.camera import Camera
+from sources.vision import Identificador
 
 import json
 
@@ -15,7 +15,7 @@ faq_items = json.load(open('config/faq.json', encoding='utf-8'))
 DB_CONN = Postgress(host='localhost', database='postgres')
 DB_CONN.connect()
 
-camera = Camera()
+identificador = Identificador()
 
 app = Flask(__name__)
 
@@ -145,12 +145,8 @@ def rec():
 
 def gen_feed():
     while True:
-        frame = camera.read()
+        frame = identificador.read()
         yield (b'--frame\r\n'b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
-
-@app.route("/teste", methods=["GET", "POST"])
-def teste():
-    return render_template('teste.html')
 
 # Método para capturar erros
 for code in default_exceptions:

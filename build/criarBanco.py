@@ -13,23 +13,6 @@ con = psycopg2.connect(
 
 cur = con.cursor()
 
-# sql = 'CREATE TABLE IF NOT EXISTS professor(id_professor SERIAL NOT NULL PRIMARY KEY, nome VARCHAR(60) NOT NULL);'
-# cur.execute(sql)
-# con.commit()
-
-# sql = "CREATE TABLE IF NOT EXISTS aula(id_aula SERIAL NOT NULL PRIMARY KEY, nome VARCHAR(60) NOT NULL, id_professor INT NOT NULL REFERENCES professor(id_professor));"
-# cur.execute(sql)
-# con.commit()
-
-# sql = "CREATE TABLE IF NOT EXISTS aluno(id_aluno SERIAL NOT NULL UNIQUE PRIMARY KEY, nome VARCHAR(60) NOT NULL,ra INT NOT NULL UNIQUE, id_aula INT NULL REFERENCES aula(id_aula));"
-# cur.execute(sql)
-# con.commit()
-
-
-# sql = "CREATE TABLE IF NOT EXISTS imagem(imagem BYTEA NOT NULL, id_aluno INT REFERENCES aluno(id_aluno));"
-# cur.execute(sql)
-# con.commit()
-
 sql = "CREATE TABLE IF NOT EXISTS registro(id SERIAL NOT NULL UNIQUE PRIMARY KEY, data TIMESTAMP, qntErvasDetec INT NOT NULL, porcErvasDetectadas INT NOT NULL, situacao VARCHAR(8), risco VARCHAR(8));"
 cur.execute(sql)
 con.commit()

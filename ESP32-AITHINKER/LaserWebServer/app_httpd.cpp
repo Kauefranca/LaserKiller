@@ -390,7 +390,7 @@ static esp_err_t cmd_handler(httpd_req_t *req) {
   } else if (!strcmp(variable, "ae_level")) {
     res = s->set_ae_level(s, val);
   } else if (!strcmp(variable, "toggle-laser")) {
-    changeLaser();
+    changeLaser(val);
   }
 #if CONFIG_LED_ILLUMINATOR_ENABLED
   else if (!strcmp(variable, "led_intensity")) {

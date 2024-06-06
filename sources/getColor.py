@@ -28,13 +28,13 @@ def get_thresh_from_vals(vals: np.array) -> np.array:
 
 
 # Open a connection to the webcam (you may need to change the index)
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture('sources\\Laser_Identify.mp4')
 
 while True:
     # Capture frame-by-frame
     ret, frame = cap.read()
 
-    # Display the frame
+    frame = cv2.resize(frame, (1280, 720))
     cv2.imshow('frame', frame)
 
     # Set the callback function for mouse events

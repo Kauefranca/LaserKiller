@@ -27,11 +27,9 @@
         </div>
         <div class="webcam-src-container">
             <img class="webcam-src" src="http://127.0.0.1:5000/camera_feed" alt="">
-            <!-- <img class="webcam-src" src="/static/img/Camera.png" alt=""> -->
         </div>
         <div class="webcam-botoes">
-            <button id="laser" class="teste-laser">Teste Laser</button>
-            <!-- <button id="finalizar" class="encerrar-aula" disabled>Encerrar</button> -->
+            <button id="laser" disabled class="teste-laser">Teste Laser</button>
         </div>
     </div>
     
@@ -152,10 +150,8 @@
         for (let chart of charts) renderChart(chart.id, chart.texto, chart.data, chart.opcoes);
     });
 
-    var iniciar_button = document.querySelector('button#laser');
-    iniciar_button.addEventListener("click", testeLaser);
-    var finalizar_button = document.querySelector('button#finalizar');
-    finalizar_button.addEventListener("click", finalizar_aula);
+    var laser_button = document.querySelector('button#laser');
+    laser_button.addEventListener("click", testeLaser);
 
     function testeLaser() {
         fetch('http://192.168.137.135/control?var=toggle-laser&val=1', {
@@ -173,41 +169,6 @@
         iniciar_button.setAttribute('disabled', true);
         finalizar_button.removeAttribute('disabled');
 
-    };
-
-    function finalizar_aula() {
-        const swalWithBootstrapButtons = Swal.mixin({
-            customClass: {
-                confirmButton: "btn btn-success",
-                cancelButton: "btn btn-danger"
-            },
-            buttonsStyling: false
-        });
-
-        swalWithBootstrapButtons.fire({
-            title: "Encerrar aula",
-            text: "Deseja encerrar a aula?",
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonText: "Sim",
-            cancelButtonText: "Não",
-            reverseButtons: true
-        })
-        .then((result) => {
-            if (result.isConfirmed) {
-                swalWithBootstrapButtons.fire({
-                title: "Aula encerrada!",
-                text: "A aula foi encerrada com sucesso",
-                icon: "success"
-            });
-                finalizar_button.setAttribute('disabled', true);
-                iniciar_button.removeAttribute('disabled')
-
-                fetch('http://' + document.domain + ':' + location.port + '/end_aula', {
-                    method: 'POST'
-                });
-            }
-        });
     };
 </script>
 

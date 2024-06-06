@@ -178,6 +178,11 @@ body {
     padding-inline: 18px
 }
 
+button:disabled,
+button[disabled]{
+    background-color: #888;
+}
+
 .sala {
     color: #fff;
     text-decoration: none;

@@ -7,23 +7,18 @@
 // ===========================
 // Configurações do WIFI
 // ===========================
-const char *ssid = "ESPCAM";
-const char *password = "tinhaqueserads";
+const char *ssid = "((WIFI ))";
+const char *password = "@Hsf2519";
 
 int laserStatus = 0;
 
 void startCameraServer();
 void setupLedFlash(int pin);
-void changeLaser();
+void changeLaser(int val);
 
-void changeLaser() {
-  if (laserStatus == 0) {
-    digitalWrite(LASER_GPIO_NUM, 1);
-    laserStatus = 1;
-  } else {
-    digitalWrite(LASER_GPIO_NUM, 0);
-    laserStatus = 0;
-  }
+void changeLaser(int val) {
+  if (val != 0 && val != 1) return;
+  else digitalWrite(LASER_GPIO_NUM, val);
 }
 
 void setup() {
