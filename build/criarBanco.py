@@ -5,7 +5,7 @@ import psycopg2
 
 con = psycopg2.connect(
 	host='localhost', 
-	database='postgres', 
+	database='unimar', 
 	port='5432',
 	user='postgres', 
 	password='postgres'
